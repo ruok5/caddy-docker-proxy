@@ -1,5 +1,5 @@
 FROM alpine:3.7
-LABEL maintainer "Lucas Lorentz <lucaslorentzlara@hotmail.com>"
+LABEL maintainer "Brad Rush <brad@fyvm.org>"
 
 EXPOSE 80 443 2015
 
