@@ -1,4 +1,6 @@
 FROM alpine:3.7 as alpine
+
+# fetch the trusted root certs that we'll need to reach outside services
 RUN apk add -U --no-cache ca-certificates
 
 # Image starts here
@@ -13,4 +15,6 @@ COPY --from=alpine /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 
 COPY artifacts/binaries/linux/amd64/caddy /bin/
 
-ENTRYPOINT ["/bin/caddy"]
+COPY entrypoint.sh /
+
+ENTRYPOINT ["/entrypoint.sh"]
